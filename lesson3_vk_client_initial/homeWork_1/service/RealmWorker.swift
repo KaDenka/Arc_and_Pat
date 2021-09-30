@@ -24,7 +24,7 @@ class RealmWorker {
             let config = Realm.Configuration(deleteRealmIfMigrationNeeded: needMigrate)
             let realm = try Realm(configuration: config)
             try realm.write {
-                realm.add(items, update: needUpdate)
+                realm.add(items) //, update: needUpdate)
             }
             return realm
         } catch {
@@ -57,7 +57,7 @@ class RealmWorker {
                 Realm.Configuration.defaultConfiguration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
                 let realm = try Realm()
                 realm.beginWrite()
-                realm.add(friends, update: true)
+                realm.add(friends) //add(friends, update: true)
                 try realm.commitWrite()
                 
             } catch {
@@ -74,7 +74,7 @@ class RealmWorker {
             do {
                 let realm = try Realm()
                 realm.beginWrite()
-                realm.add(groups, update: true)
+                realm.add(groups) //, update: true)
                 try realm.commitWrite()
                 
             } catch {
@@ -90,7 +90,7 @@ class RealmWorker {
             do {
                 let realm = try Realm()
                 realm.beginWrite()
-                realm.add(photos, update: true)
+                realm.add(photos) //, update: true)
                 try realm.commitWrite()
             } catch {
                 print("Realm getFriends error: \(error)")

@@ -17,7 +17,7 @@ class VkResponseParser {
     private init(){}
     
     
-    func parseFriends(result: Result<Any>) -> [VkFriend] {
+    func parseFriends(result: Result<Any, AFError>) -> [VkFriend] {
         var friends = [VkFriend]()
         
         var firstnameArr = [String]()
@@ -75,7 +75,7 @@ class VkResponseParser {
         return friends
     }
     
-    func parseGroups(result: Result<Any>, isSearched: Bool) -> [VkGroup] {
+    func parseGroups(result: Result<Any, AFError>, isSearched: Bool) -> [VkGroup] {
         var groups = [VkGroup]()
         
         switch result {
@@ -119,7 +119,7 @@ class VkResponseParser {
 
     }
     
-    func parseJoinLeaveGroup(result: Result<Any>) -> Bool {
+    func parseJoinLeaveGroup(result: Result<Any, AFError>) -> Bool {
         
         switch result {
         case .success(let value):
@@ -136,7 +136,7 @@ class VkResponseParser {
         return false
     }
     
-    func parsePhotos(result: Result<Any>) -> [VkPhoto] {
+    func parsePhotos(result: Result<Any, AFError>) -> [VkPhoto] {
         var photos = [VkPhoto]()
         
         switch result {
@@ -181,7 +181,7 @@ class VkResponseParser {
     }
 
     
-    func parseNews(result: Result<Any>) -> [VkFeed] {
+    func parseNews(result: Result<Any, AFError>) -> [VkFeed] {
         let nextFromNotification = Notification.Name("nextFromNotification")
         var feeds = [VkFeed]()
         var feedGroups = [VkGroup]()
@@ -279,7 +279,7 @@ class VkResponseParser {
     }
     
     
-    func parseComments(result: Result<Any>) -> [VkComment] {
+    func parseComments(result: Result<Any, AFError>) -> [VkComment] {
 
         var comments = [VkComment]()
         var commentProfiles = [VkCommentProfile]()
