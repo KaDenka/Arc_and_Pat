@@ -74,12 +74,12 @@ class LoginVkViewController: UIViewController {
         urlComponents.host = "oauth.vk.com"
         urlComponents.path = "/authorize"
         urlComponents.queryItems = [
-            URLQueryItem(name: "client_id", value: "6729130"),
+            URLQueryItem(name: "client_id", value: "7900166"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-            URLQueryItem(name: "scope", value: "\(262150+8192)"),
+            URLQueryItem(name: "scope", value: "friends,groups,photos,offline,wall"),
             URLQueryItem(name: "response_type", value: "token"),
-            URLQueryItem(name: "v", value: "5.87")
+            URLQueryItem(name: "v", value: "5.131")
         ]
         
         let request = URLRequest(url: urlComponents.url!)
